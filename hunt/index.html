@@ -23,16 +23,16 @@
     <p class="timer" id="timer"></p>
     <a class="btn" id="open">アプリで参加する</a>
     <a class="btn sub" id="store">App Storeで近日公開</a>
-    <p class="note">アプリが無くても大丈夫。<br>お題の色をカメラで探して撮って、<br>終わったら見せ合おう📸</p>
+    <p class="note" id="note">アプリが無くても大丈夫。<br>お題の色をカメラで探して撮って、<br>終わったら見せ合おう📸</p>
   </section>
   <section class="card" id="ended" hidden>
     <p class="timer">TIME UP!</p>
-    <p class="note">このハントはもう終わったみたい。<br>また誘ってもらおう</p>
+    <p class="note" id="endedNote">このハントはもう終わったみたい。<br>また誘ってもらおう</p>
   </section>
   <section class="card" id="broken" hidden>
-    <p class="note">招待の内容を読み取れませんでした。<br>送ってもらったリンクをもう一度開いてね</p>
+    <p class="note" id="brokenNote">招待の内容を読み取れませんでした。<br>送ってもらったリンクをもう一度開いてね</p>
   </section>
-  <footer><a href="../">CatcHueについて</a> ・ <a href="../privacy/">プライバシーポリシー</a></footer>
+  <footer><a href="../" id="about">CatcHueについて</a> ・ <a href="../privacy/" id="privacy">プライバシーポリシー</a></footer>
 </main>
 <script>
 // 招待リンク（…/hunt/?c=red&end=1791120600&g=9）を読んで、お題を見せる。アプリの colorhunt://hunt と同じ項目
@@ -44,6 +44,30 @@ const COLORS = {
   purple: ["紫", "PURPLE", "#8c47c7"], pink: ["ピンク", "PINK", "#f580b3"], brown: ["茶", "BROWN", "#8c542e"],
   white: ["白", "WHITE", "#f7f7f7"], black: ["黒", "BLACK", "#141414"],
 };
+// ブラウザの言語が日本語でなければ英語で出す
+const EN = !(navigator.language || "ja").toLowerCase().startsWith("ja");
+const COLOR_EN = { red: "Red", orange: "Orange", yellow: "Yellow", green: "Green", sky: "Sky", blue: "Blue",
+  purple: "Purple", pink: "Pink", brown: "Brown", white: "White", black: "Black" };
+const T = EN ? {
+  title: "Color hunt with CatcHue", theme: c => `Today’s color: “${c}”`, goal: n => `Collect ${n}`,
+  until: t => `until ${t}`, left: t => `${t} left`, open: "Join in the App", soon: "Coming soon to the App Store",
+  get: "Get it on the App Store",
+  note: "No app? No problem.<br>Find the color with your camera,<br>then show each other when time’s up 📸",
+  ended: "This hunt has ended.<br>Ask your friend to invite you again",
+  broken: "Couldn’t read this invite.<br>Please open the link you received again",
+  about: "About CatcHue", privacy: "Privacy Policy",
+} : {
+  title: "CatcHue カラーハント", theme: c => `お題は「${c}」`, goal: n => `${n}枚あつめる`,
+  until: t => `${t}まで`, left: t => `のこり ${t}`, open: "アプリで参加する", soon: "App Storeで近日公開",
+  get: "App Storeで入手", note: null, ended: null, broken: null, about: null, privacy: null,
+};
+if (EN) {
+  document.documentElement.lang = "en";
+  document.title = T.title;
+  for (const [id, key] of [["note", "note"], ["endedNote", "ended"], ["brokenNote", "broken"], ["about", "about"], ["privacy", "privacy"]]) {
+    document.getElementById(id).innerHTML = T[key];
+  }
+}
 const q = new URLSearchParams(location.search);
 const show = id => document.getElementById(id).hidden = false;
 const id = q.get("c") || "", end = Number(q.get("end"));
@@ -61,18 +85,19 @@ if (!color || !end) {
 } else {
   document.documentElement.style.setProperty("--accent", color[2]);
   document.getElementById("color").textContent = color[1];
-  document.getElementById("jp").textContent = `お題は「${color[0]}」`;
-  document.getElementById("goal").textContent = `${goal}枚あつめる`;
+  document.getElementById("jp").textContent = T.theme(EN ? (COLOR_EN[id] || color[1].toLowerCase()) : color[0]);
+  document.getElementById("goal").textContent = T.goal(goal);
   const d = new Date(end * 1000);
-  document.getElementById("until").textContent = `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}まで`;
+  document.getElementById("until").textContent = T.until(`${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}`);
   // アプリで開く（アプリが入っていれば、そのままハントに参加する）
   document.getElementById("open").href = "colorhunt://hunt?" + q.toString();
+  document.getElementById("open").textContent = T.open;
   const store = document.getElementById("store");
-  if (APP_STORE_URL) { store.href = APP_STORE_URL; store.textContent = "App Storeで入手"; } else { store.setAttribute("aria-disabled", "true"); }
+  if (APP_STORE_URL) { store.href = APP_STORE_URL; store.textContent = T.get; } else { store.textContent = T.soon; store.setAttribute("aria-disabled", "true"); }
   const timer = document.getElementById("timer");
   const tick = () => {
     const s = Math.max(0, Math.ceil(end - Date.now() / 1000));
-    timer.textContent = `のこり ${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+    timer.textContent = T.left(`${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`);
     if (s === 0) { document.getElementById("hunt").hidden = true; show("ended"); clearInterval(t); }
   };
   const t = setInterval(tick, 1000); tick();

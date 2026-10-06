@@ -8,13 +8,17 @@
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+<script>
+// 日本語以外のブラウザでは英語版へ（英語版から戻った時は ?ja を付ける）
+if (!location.search.includes("ja") && !(navigator.language || "ja").toLowerCase().startsWith("ja")) location.replace("en/");
+</script>
 <div class="blobs"><i></i><i></i><i></i><i></i></div>
 <main>
   <div class="brand"><img src="../icon.png" alt=""><div><b>CatcHue</b><small>Catch the colors around you.</small></div></div>
   <article class="card" style="text-align:left">
     <h1>プライバシーポリシー</h1>
     <p>最終更新日: 2026年10月6日</p>
-    <p>CatcHue（以下「本アプリ」）は、利用者の情報を次のとおり扱います。</p>
+    <p>CatcHue（以下「本アプリ」）は、利用者の情報を次のとおり扱います。 <a href="en/">English</a></p>
     <h2>1. 集める情報</h2>
     <p>本アプリは、利用者の個人情報を集めません。開発者のサーバーへ情報を送ることもありません。</p>
     <h2>2. カメラ</h2>

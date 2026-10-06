@@ -18,11 +18,23 @@
   <section class="card">
     <div class="swatch"></div>
     <p class="color">CATCH!</p>
-    <p class="jp">色を決めて、まわりから探して、撮る。</p>
-    <p class="note">選んだ色がカメラに映ると光って教えてくれる。<br>9枚集めて、コラージュにしよう。<br>友達と同じ色を探すハントも。</p>
-    <a class="btn sub" aria-disabled="true">App Storeで近日公開</a>
+    <p class="jp" id="lead">色を決めて、まわりから探して、撮る。</p>
+    <p class="note" id="desc">選んだ色がカメラに映ると光って教えてくれる。<br>9枚集めて、コラージュにしよう。<br>友達と同じ色を探すハントも。</p>
+    <a class="btn sub" aria-disabled="true" id="store">App Storeで近日公開</a>
   </section>
-  <footer><a href="privacy/">プライバシーポリシー</a> ・ お問い合わせ: <a href="mailto:catchue.app@gmail.com">catchue.app@gmail.com</a><br>#CatcHue</footer>
+  <footer><a href="privacy/" id="privacy">プライバシーポリシー</a> ・ <span id="contact">お問い合わせ</span>: <a href="mailto:catchue.app@gmail.com">catchue.app@gmail.com</a><br>#CatcHue</footer>
 </main>
+<script>
+// ブラウザの言語が日本語でなければ英語で出す
+if (!(navigator.language || "ja").toLowerCase().startsWith("ja")) {
+  document.documentElement.lang = "en";
+  const set = (id, html) => { document.getElementById(id).innerHTML = html; };
+  set("lead", "Pick a color. Find it around you. Snap it.");
+  set("desc", "Your color lights up when the camera sees it.<br>Collect 9 and make a collage.<br>Hunt the same color with friends.");
+  set("store", "Coming soon to the App Store");
+  set("privacy", "Privacy Policy");
+  set("contact", "Contact");
+}
+</script>
 </body>
 </html>
