@@ -1,0 +1,53 @@
+/* CatcHue のWebページ（招待・紹介・プライバシーポリシー）。アプリと同じ、紫紺の地にキャンディ色がにじむ見た目 */
+:root {
+  --bg: #fbf9ff; --ink: #1d1830; --sub: rgba(29, 24, 48, .62); --panel: rgba(255, 255, 255, .7);
+  --shade: rgba(108, 97, 140, .32); --light: #fff; --accent: #db1f26;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #1c1730; --ink: #f6f3ff; --sub: rgba(246, 243, 255, .65); --panel: rgba(255, 255, 255, .1);
+    --shade: rgba(0, 0, 0, .6); --light: rgba(184, 168, 255, .16); }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
+  font-family: "SF Pro Rounded", ui-rounded, "Hiragino Maru Gothic ProN", "Hiragino Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+.blobs { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+.blobs i { position: absolute; width: 70vmax; height: 70vmax; border-radius: 50%; filter: blur(80px); opacity: .22; }
+.blobs i:nth-child(1) { background: #ff6fae; left: -30vmax; top: -30vmax; }
+.blobs i:nth-child(2) { background: #ffa04a; right: -30vmax; top: -25vmax; }
+.blobs i:nth-child(3) { background: #57d6b6; right: -35vmax; top: 30vh; }
+.blobs i:nth-child(4) { background: #5b8cff; left: -35vmax; bottom: -35vmax; }
+main { max-width: 440px; margin: 0 auto; padding: 32px 16px 48px; }
+.brand { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+.brand img { width: 52px; height: 52px; border-radius: 13px; box-shadow: 4px 4px 12px var(--shade), -4px -4px 12px var(--light); }
+.brand b { font-size: 24px; font-weight: 900; letter-spacing: .02em; }
+.brand small { display: block; font-size: 12px; color: var(--sub); font-weight: 700; }
+.card {
+  background: var(--panel); border-radius: 28px; padding: 26px 22px; text-align: center;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  box-shadow: 7px 7px 18px var(--shade), -7px -7px 18px var(--light);
+}
+.swatch {
+  width: 112px; height: 112px; margin: 6px auto 18px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 40px var(--accent), inset 0 0 0 10px rgba(255, 255, 255, .35);
+}
+.color { font-size: 44px; font-weight: 900; letter-spacing: .04em; color: var(--accent); margin: 0; line-height: 1; }
+.jp { font-size: 15px; font-weight: 800; color: var(--sub); margin: 8px 0 18px; }
+.meta { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.chip { background: var(--panel); border-radius: 999px; padding: 8px 14px; font-weight: 800; font-size: 14px;
+  box-shadow: 3px 3px 8px var(--shade), -3px -3px 8px var(--light); }
+.timer { font-size: 40px; font-weight: 900; font-variant-numeric: tabular-nums; margin: 0 0 4px; }
+.note { font-size: 14px; color: var(--sub); line-height: 1.7; margin: 16px 0 0; }
+.btn {
+  display: block; width: 100%; margin-top: 14px; padding: 16px; border-radius: 999px; border: 0;
+  font: inherit; font-size: 17px; font-weight: 900; text-decoration: none; text-align: center; cursor: pointer;
+  color: #fff; background: var(--accent); box-shadow: 0 6px 20px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.btn.sub { color: var(--ink); background: var(--panel); box-shadow: 4px 4px 12px var(--shade), -4px -4px 12px var(--light); }
+.btn[aria-disabled="true"] { opacity: .55; pointer-events: none; }
+footer { text-align: center; margin-top: 28px; font-size: 12px; color: var(--sub); }
+footer a { color: inherit; }
+article h1 { font-size: 24px; } article h2 { font-size: 17px; margin-top: 26px; }
+article p, article li { line-height: 1.8; font-size: 15px; }

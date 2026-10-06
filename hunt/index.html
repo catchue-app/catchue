@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CatcHue カラーハント</title>
+<meta name="description" content="お題の色を、時間内にまわりから探して撮ろう。">
+<meta property="og:title" content="CatcHueでカラーハントしよう！">
+<meta property="og:description" content="お題の色を、時間内にまわりから探して撮ろう。">
+<meta property="og:image" content="../icon.png">
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="blobs"><i></i><i></i><i></i><i></i></div>
+<main>
+  <div class="brand"><img src="../icon.png" alt=""><div><b>CatcHue</b><small>Catch the colors around you.</small></div></div>
+  <section class="card" id="hunt" hidden>
+    <div class="swatch"></div>
+    <p class="color" id="color"></p>
+    <p class="jp" id="jp"></p>
+    <div class="meta"><span class="chip" id="goal"></span><span class="chip" id="until"></span></div>
+    <p class="timer" id="timer"></p>
+    <a class="btn" id="open">アプリで参加する</a>
+    <a class="btn sub" id="store">App Storeで近日公開</a>
+    <p class="note">アプリが無くても大丈夫。<br>お題の色をカメラで探して撮って、<br>終わったら見せ合おう📸</p>
+  </section>
+  <section class="card" id="ended" hidden>
+    <p class="timer">TIME UP!</p>
+    <p class="note">このハントはもう終わったみたい。<br>また誘ってもらおう</p>
+  </section>
+  <section class="card" id="broken" hidden>
+    <p class="note">招待の内容を読み取れませんでした。<br>送ってもらったリンクをもう一度開いてね</p>
+  </section>
+  <footer><a href="../">CatcHueについて</a> ・ <a href="../privacy/">プライバシーポリシー</a></footer>
+</main>
+<script>
+// 招待リンク（…/hunt/?c=red&end=1791120600&g=9）を読んで、お題を見せる。アプリの colorhunt://hunt と同じ項目
+// App Store に出したら、ここにアプリのページの URL を入れる
+const APP_STORE_URL = "";
+const COLORS = {
+  red: ["赤", "RED", "#db1f26"], orange: ["オレンジ", "ORANGE", "#f5851a"], yellow: ["黄", "YELLOW", "#fad626"],
+  green: ["緑", "GREEN", "#33a852"], sky: ["水色", "SKY", "#66c2f5"], blue: ["青", "BLUE", "#2666e0"],
+  purple: ["紫", "PURPLE", "#8c47c7"], pink: ["ピンク", "PINK", "#f580b3"], brown: ["茶", "BROWN", "#8c542e"],
+  white: ["白", "WHITE", "#f7f7f7"], black: ["黒", "BLACK", "#141414"],
+};
+const q = new URLSearchParams(location.search);
+const show = id => document.getElementById(id).hidden = false;
+const id = q.get("c") || "", end = Number(q.get("end"));
+let color = COLORS[id];
+// オリジナル色（アプリの端末に無い色）は、色の値と名前が付いてくる
+if (!color && id.startsWith("c-") && /^[0-9a-fA-F]{6}$/.test(q.get("rgb") || "")) {
+  const name = (q.get("n") || "オリジナル").slice(0, 20);
+  color = [name, name.toUpperCase(), "#" + q.get("rgb")];
+}
+const goal = Math.min(25, Math.max(1, parseInt(q.get("g") || "9", 10) || 9));
+if (!color || !end) {
+  show("broken");
+} else if (end * 1000 <= Date.now()) {
+  show("ended");
+} else {
+  document.documentElement.style.setProperty("--accent", color[2]);
+  document.getElementById("color").textContent = color[1];
+  document.getElementById("jp").textContent = `お題は「${color[0]}」`;
+  document.getElementById("goal").textContent = `${goal}枚あつめる`;
+  const d = new Date(end * 1000);
+  document.getElementById("until").textContent = `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}まで`;
+  // アプリで開く（アプリが入っていれば、そのままハントに参加する）
+  document.getElementById("open").href = "colorhunt://hunt?" + q.toString();
+  const store = document.getElementById("store");
+  if (APP_STORE_URL) { store.href = APP_STORE_URL; store.textContent = "App Storeで入手"; } else { store.setAttribute("aria-disabled", "true"); }
+  const timer = document.getElementById("timer");
+  const tick = () => {
+    const s = Math.max(0, Math.ceil(end - Date.now() / 1000));
+    timer.textContent = `のこり ${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+    if (s === 0) { document.getElementById("hunt").hidden = true; show("ended"); clearInterval(t); }
+  };
+  const t = setInterval(tick, 1000); tick();
+  show("hunt");
+}
+</script>
+</body>
+</html>
