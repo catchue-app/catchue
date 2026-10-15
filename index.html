@@ -3,38 +3,65 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Catchue</title>
-<meta name="description" content="色を決めて、まわりから探して、撮る。身のまわりの色を集めるカメラ。">
-<meta property="og:title" content="Catchue - Catch the colors around you.">
-<meta property="og:description" content="色を決めて、まわりから探して、撮る。身のまわりの色を集めるカメラ。">
-<meta property="og:image" content="icon.png">
+<meta name="theme-color" content="#fff8ec">
+<title>Catchue — 色で、世界とあそぼう。</title>
+<meta name="description" content="猫とネズミと、今日の色を探しに。撮って、色を整えて、コラージュに残すiPhoneカメラアプリ。">
+<meta property="og:title" content="Catchue — 色で、世界とあそぼう。">
+<meta property="og:description" content="猫とネズミと、今日の色を探しに。">
+<meta property="og:image" content="https://catchue-app.github.io/catchue/icon.png">
 <link rel="icon" href="icon.png">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=pop1">
+<script src="home.js" defer></script>
 </head>
-<body>
-<div class="blobs"><i></i><i></i><i></i><i></i></div>
-<main>
-  <div class="brand"><img src="icon.png" alt=""><div><b>Catchue</b><small>Catch the colors around you.</small></div></div>
-  <section class="card">
-    <div class="swatch"></div>
-    <p class="color">CATCH!</p>
-    <p class="jp" id="lead">色を決めて、まわりから探して、撮る。</p>
-    <p class="note" id="desc">身近な色を見つけて撮影。<br>Postでフレンドや限定ルームへ。<br>届いたコラージュはWorksに。</p>
-    <a class="btn sub" aria-disabled="true" id="store">App Storeで近日公開</a>
+<body class="home">
+<div class="site-wrap">
+<header class="site-header">
+  <a class="brand" href="./" aria-label="Catchue ホーム"><img src="assets/catchue-logo.webp" width="960" height="357" alt="Catchue"></a>
+  <nav aria-label="メインナビゲーション"><a href="#how" data-i18n="navHow">あそびかた</a><a href="mailto:catchue.app@gmail.com" data-i18n="navContact">お問い合わせ</a></nav>
+</header>
+<main class="home-main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="tiny-dot"></span><span data-i18n="eyebrow">毎日に、ちいさな色あそび。</span></p>
+      <h1 id="hero-title" data-i18n="title">色で、<br>世界と<span class="play-word">あそぼう。</span></h1>
+      <p class="hero-description" data-i18n="description">猫とネズミと、今日の色を探しに。<br>いつもの景色が、ちょっとたのしくなるカメラ。</p>
+      <a class="button button-yellow" href="#how"><span data-i18n="discover">Catchueって？</span><span aria-hidden="true">↗</span></a>
+      <p class="release-note"><span class="status-dot"></span><span data-i18n="release">iPhoneアプリ · ただいまテスト中</span></p>
+    </div>
+    <div class="hero-playground" aria-label="色を選んで、猫とネズミとあそぼう">
+      <div class="scene-disc" aria-hidden="true"></div>
+      <span class="scene-spark spark-one" aria-hidden="true">✦</span><span class="scene-spark spark-two" aria-hidden="true">✧</span>
+      <div class="speech" data-i18n="speech">どの色を探す？</div>
+      <div class="friends-art">
+        <div class="color-orb" aria-hidden="true"></div>
+        <img src="assets/catchue-friends.webp" width="1200" height="732" alt="白とオレンジの猫と、水色のネズミが、いっしょに色を紹介しています。" fetchpriority="high" data-alt="friendsAlt">
+      </div>
+      <div class="color-picker">
+        <div class="color-name" id="color-name" aria-live="polite">SKY BLUE</div>
+        <div class="swatches" role="group" aria-label="試しに色を選ぶ" data-label="colorsLabel">
+          <button class="color-choice" type="button" data-color="#80cbe8" data-name="SKY BLUE" aria-label="水色" aria-pressed="true" style="--swatch:#80cbe8"><span aria-hidden="true">✓</span></button>
+          <button class="color-choice" type="button" data-color="#ffab9f" data-name="CORAL" aria-label="コーラル" aria-pressed="false" style="--swatch:#ffab9f"><span aria-hidden="true">✓</span></button>
+          <button class="color-choice" type="button" data-color="#ffcf63" data-name="SUNNY YELLOW" aria-label="黄色" aria-pressed="false" style="--swatch:#ffcf63"><span aria-hidden="true">✓</span></button>
+          <button class="color-choice" type="button" data-color="#a9d7b8" data-name="MINT" aria-label="ミント" aria-pressed="false" style="--swatch:#a9d7b8"><span aria-hidden="true">✓</span></button>
+          <button class="color-choice" type="button" data-color="#c3abe7" data-name="LILAC" aria-label="ライラック" aria-pressed="false" style="--swatch:#c3abe7"><span aria-hidden="true">✓</span></button>
+        </div>
+      </div>
+    </div>
   </section>
-  <footer><a href="privacy/" id="privacy">プライバシーポリシー</a> ・ <span id="contact">お問い合わせ</span>: <a href="mailto:catchue.app@gmail.com">catchue.app@gmail.com</a><br>#Catchue</footer>
+  <section class="how-section" id="how" aria-labelledby="how-title">
+    <div class="section-heading"><p class="eyebrow">A LITTLE COLOR, A LITTLE JOY.</p><h2 id="how-title" data-i18n="howTitle">見つけた色が、<br class="mobile-break">思い出になる。</h2></div>
+    <div class="steps">
+      <article class="step"><div class="step-art art-blue" aria-hidden="true"><span class="step-number">01</span><svg viewBox="0 0 120 100"><path d="M23 27h17l9-11h23l9 11h16a10 10 0 0 1 10 10v45H13V37a10 10 0 0 1 10-10Z"/><circle cx="60" cy="56" r="23"/><circle cx="60" cy="56" r="12"/><path d="M88 39h6"/></svg></div><h3 data-i18n="step1Title">色を、見つける。</h3><p data-i18n="step1Text">空の青。花のピンク。<br>今日の色を、身近な景色から。</p></article>
+      <article class="step"><div class="step-art art-lilac" aria-hidden="true"><span class="step-number">02</span><svg viewBox="0 0 120 100"><path d="M29 22v59M60 22v59M91 22v59"/><rect x="19" y="36" width="20" height="16" rx="8"/><rect x="50" y="59" width="20" height="16" rx="8"/><rect x="81" y="27" width="20" height="16" rx="8"/></svg></div><h3 data-i18n="step2Title">好きな色に、整える。</h3><p data-i18n="step2Text">おまかせチューニングで、ワンタップ。<br>こだわりたい日は、じっくり編集も。</p></article>
+      <article class="step"><div class="step-art art-peach" aria-hidden="true"><span class="step-number">03</span><svg viewBox="0 0 120 100"><path d="M16 18h88v66H16zM53 18v66M53 51h51"/><path d="m24 65 10-13 11 13M66 39l9-9 13 12M66 72l9-10 14 10"/></svg></div><h3 data-i18n="step3Title">一日を、作品に。</h3><p data-i18n="step3Text">投稿した写真が、コラージュになって届く。<br>見つけた色を、Worksに残そう。</p></article>
+    </div>
+  </section>
+  <section class="together" aria-labelledby="together-title">
+    <div class="keepsake-art"><div class="keepsake-disc" aria-hidden="true"></div><img src="assets/catchue-keepsake.webp" width="960" height="585" alt="猫とネズミが、色とりどりの作品を大切に持っています。" loading="lazy" data-alt="keepsakeAlt"></div>
+    <div class="together-copy"><p class="eyebrow">YOUR COLORS. OUR LITTLE ADVENTURE.</p><h2 id="together-title" data-i18n="togetherTitle">ひとりでも。<br>友達とでも。</h2><p data-i18n="togetherText">自分だけの色を集めたり、<br>限定ルームで、友達と同じ色を追いかけたり。<br>それぞれの目線が、ひとつの作品に。</p><span class="soft-tag" data-i18n="tag">猫とネズミも、いっしょです。</span></div>
+  </section>
 </main>
-<script>
-// ブラウザの言語が日本語でなければ英語で出す
-if (!(navigator.language || "ja").toLowerCase().startsWith("ja")) {
-  document.documentElement.lang = "en";
-  const set = (id, html) => { document.getElementById(id).innerHTML = html; };
-  set("lead", "Pick a color. Find it around you. Snap it.");
-  set("desc", "Find a color around you and take a photo.<br>Post to friends or a private room.<br>Keep received collages in Works.");
-  set("store", "Coming soon to the App Store");
-  set("privacy", "Privacy Policy");
-  set("contact", "Contact");
-}
-</script>
+<footer class="site-footer"><a class="footer-brand" href="./">Catchue<span aria-hidden="true">✦</span></a><p data-i18n="footerNote">いつもの毎日に、好きな色を。</p><div class="footer-links"><a href="privacy/" data-i18n="privacy">プライバシーポリシー</a><a href="mailto:catchue.app@gmail.com" data-i18n="navContact">お問い合わせ</a><a href="?lang=en" id="language-link" lang="en">English</a></div><small>© Catchue</small></footer>
+</div>
 </body>
 </html>
