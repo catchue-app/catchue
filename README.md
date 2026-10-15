@@ -1,9 +1,9 @@
-# CatcHue の Web ページ
+# Catchue の Web ページ
 
 GitHub Pages でそのまま公開できる静的なページ（サーバー不要・アクセス解析なし）。
 
 - `index.html` … アプリの紹介
-- `hunt/index.html` … 友達を誘うリンクの行き先（`hunt/?c=red&end=1791120600&g=9`）。アプリが無い人にもお題を見せ、「アプリで参加する」で `colorhunt://hunt?...` を開く
+- `hunt/index.html` … 以前のカラーハントの招待リンクの行き先（現行の限定ルーム招待とは別）（`hunt/?c=red&end=1791120600&g=9`）。アプリが無い人にもお題を見せ、「アプリで参加する」で `colorhunt://hunt?...` を開く
 - `privacy/index.html` … プライバシーポリシー（App Store の申請に使う URL）
 
 公開先: https://catchue-app.github.io/catchue/ （GitHub: catchue-app/catchue、このフォルダが main の中身）。

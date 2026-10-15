@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CatcHue カラーハント</title>
+<title>Catchue カラーハント</title>
 <meta name="description" content="お題の色を、時間内にまわりから探して撮ろう。">
-<meta property="og:title" content="CatcHueでカラーハントしよう！">
+<meta property="og:title" content="Catchueでカラーハントしよう！">
 <meta property="og:description" content="お題の色を、時間内にまわりから探して撮ろう。">
 <meta property="og:image" content="../icon.png">
 <link rel="icon" href="../icon.png">
@@ -14,7 +14,8 @@
 <body>
 <div class="blobs"><i></i><i></i><i></i><i></i></div>
 <main>
-  <div class="brand"><img src="../icon.png" alt=""><div><b>CatcHue</b><small>Catch the colors around you.</small></div></div>
+  <div class="brand"><img src="../icon.png" alt=""><div><b>Catchue</b><small>Catch the colors around you.</small></div></div>
+  <p class="note" id="legacyNote">このページは以前のカラーハントの招待用です。<br>現在の限定ルームには、友達から届いた新しい招待リンクで参加してください。</p>
   <section class="card" id="hunt" hidden>
     <div class="swatch"></div>
     <p class="color" id="color"></p>
@@ -32,7 +33,7 @@
   <section class="card" id="broken" hidden>
     <p class="note" id="brokenNote">招待の内容を読み取れませんでした。<br>送ってもらったリンクをもう一度開いてね</p>
   </section>
-  <footer><a href="../" id="about">CatcHueについて</a> ・ <a href="../privacy/" id="privacy">プライバシーポリシー</a></footer>
+  <footer><a href="../" id="about">Catchueについて</a> ・ <a href="../privacy/" id="privacy">プライバシーポリシー</a></footer>
 </main>
 <script>
 // 招待リンク（…/hunt/?c=red&end=1791120600&g=9）を読んで、お題を見せる。アプリの colorhunt://hunt と同じ項目
@@ -49,21 +50,22 @@ const EN = !(navigator.language || "ja").toLowerCase().startsWith("ja");
 const COLOR_EN = { red: "Red", orange: "Orange", yellow: "Yellow", green: "Green", sky: "Sky", blue: "Blue",
   purple: "Purple", pink: "Pink", brown: "Brown", white: "White", black: "Black" };
 const T = EN ? {
-  title: "Color hunt with CatcHue", theme: c => `Today’s color: “${c}”`, goal: n => `Collect ${n}`,
+  title: "Color hunt with Catchue", theme: c => `Today’s color: “${c}”`, goal: n => `Collect ${n}`,
   until: t => `until ${t}`, left: t => `${t} left`, open: "Join in the App", soon: "Coming soon to the App Store",
   get: "Get it on the App Store",
   note: "No app? No problem.<br>Find the color with your camera,<br>then show each other when time’s up 📸",
   ended: "This hunt has ended.<br>Ask your friend to invite you again",
   broken: "Couldn’t read this invite.<br>Please open the link you received again",
-  about: "About CatcHue", privacy: "Privacy Policy",
+  about: "About Catchue", privacy: "Privacy Policy",
 } : {
-  title: "CatcHue カラーハント", theme: c => `お題は「${c}」`, goal: n => `${n}枚あつめる`,
+  title: "Catchue カラーハント", theme: c => `お題は「${c}」`, goal: n => `${n}枚あつめる`,
   until: t => `${t}まで`, left: t => `のこり ${t}`, open: "アプリで参加する", soon: "App Storeで近日公開",
   get: "App Storeで入手", note: null, ended: null, broken: null, about: null, privacy: null,
 };
 if (EN) {
   document.documentElement.lang = "en";
   document.title = T.title;
+  document.getElementById("legacyNote").innerHTML = "This page is for older color-hunt invitations.<br>For current private rooms, use the new room invitation link from your friend.";
   for (const [id, key] of [["note", "note"], ["endedNote", "ended"], ["brokenNote", "broken"], ["about", "about"], ["privacy", "privacy"]]) {
     document.getElementById(id).innerHTML = T[key];
   }
