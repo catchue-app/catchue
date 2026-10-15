@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CatcHue</title>
+<title>Catchue</title>
 <meta name="description" content="色を決めて、まわりから探して、撮る。身のまわりの色を集めるカメラ。">
-<meta property="og:title" content="CatcHue - Catch the colors around you.">
+<meta property="og:title" content="Catchue - Catch the colors around you.">
 <meta property="og:description" content="色を決めて、まわりから探して、撮る。身のまわりの色を集めるカメラ。">
 <meta property="og:image" content="icon.png">
 <link rel="icon" href="icon.png">
@@ -14,15 +14,15 @@
 <body>
 <div class="blobs"><i></i><i></i><i></i><i></i></div>
 <main>
-  <div class="brand"><img src="icon.png" alt=""><div><b>CatcHue</b><small>Catch the colors around you.</small></div></div>
+  <div class="brand"><img src="icon.png" alt=""><div><b>Catchue</b><small>Catch the colors around you.</small></div></div>
   <section class="card">
     <div class="swatch"></div>
     <p class="color">CATCH!</p>
     <p class="jp" id="lead">色を決めて、まわりから探して、撮る。</p>
-    <p class="note" id="desc">選んだ色がカメラに映ると光って教えてくれる。<br>9枚集めて、コラージュにしよう。<br>友達と同じ色を探すハントも。</p>
+    <p class="note" id="desc">身近な色を見つけて撮影。<br>Postでフレンドや限定ルームへ。<br>届いたコラージュはWorksに。</p>
     <a class="btn sub" aria-disabled="true" id="store">App Storeで近日公開</a>
   </section>
-  <footer><a href="privacy/" id="privacy">プライバシーポリシー</a> ・ <span id="contact">お問い合わせ</span>: <a href="mailto:catchue.app@gmail.com">catchue.app@gmail.com</a><br>#CatcHue</footer>
+  <footer><a href="privacy/" id="privacy">プライバシーポリシー</a> ・ <span id="contact">お問い合わせ</span>: <a href="mailto:catchue.app@gmail.com">catchue.app@gmail.com</a><br>#Catchue</footer>
 </main>
 <script>
 // ブラウザの言語が日本語でなければ英語で出す
@@ -30,7 +30,7 @@ if (!(navigator.language || "ja").toLowerCase().startsWith("ja")) {
   document.documentElement.lang = "en";
   const set = (id, html) => { document.getElementById(id).innerHTML = html; };
   set("lead", "Pick a color. Find it around you. Snap it.");
-  set("desc", "Your color lights up when the camera sees it.<br>Collect 9 and make a collage.<br>Hunt the same color with friends.");
+  set("desc", "Find a color around you and take a photo.<br>Post to friends or a private room.<br>Keep received collages in Works.");
   set("store", "Coming soon to the App Store");
   set("privacy", "Privacy Policy");
   set("contact", "Contact");
