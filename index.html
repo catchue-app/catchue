@@ -10,8 +10,8 @@
 <meta property="og:description" content="ステッカーハントで見つけたものを切り抜いて、友達とプリクラに。色探しの写真はコラージュに。">
 <meta property="og:image" content="https://catchue-app.github.io/catchue/icon.png">
 <link rel="icon" href="icon.png">
-<link rel="stylesheet" href="style.css?v=visual1">
-<script src="home.js?v=visual1" defer></script>
+<link rel="stylesheet" href="style.css?v=app-screens1">
+<script src="home.js?v=app-screens1" defer></script>
 </head>
 <body class="home">
 <div class="site-wrap">
@@ -22,120 +22,92 @@
 <main class="home-main">
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <p class="eyebrow"><span class="tiny-dot"></span><span data-i18n="eyebrow">ステッカーハント × PURI</span></p>
+      <p class="eyebrow" data-i18n="eyebrow">ステッカーハント × PURI</p>
       <h1 id="hero-title"><span data-i18n="title">撮って、貼って。</span><br><span class="play-word" data-i18n="titleAccent">プリクラに。</span></h1>
-      <a class="button button-yellow" href="#how"><span data-i18n="discover">あそびかたを見る</span><span aria-hidden="true">↗</span></a>
-      <p class="release-note"><span class="status-dot"></span><span data-i18n="release">iPhoneアプリ · ただいまテスト中</span></p>
+      <p class="hero-description" data-i18n="description">お気に入りを撮って、自分だけのステッカーに。友達と撮ったプリクラに貼って、一緒に飾れます。</p>
+      <a class="button button-yellow" href="#how"><span data-i18n="discover">あそびかたを見る</span><span aria-hidden="true">↓</span></a>
+      <p class="release-note" data-i18n="release">iPhoneアプリ · ただいまテスト中</p>
     </div>
-    <div class="hero-playground" aria-label="色を選んで、猫とネズミとあそぼう">
-      <div class="scene-disc" aria-hidden="true"></div>
-      <span class="scene-spark spark-one" aria-hidden="true">✦</span><span class="scene-spark spark-two" aria-hidden="true">✧</span>
-      <div class="speech" data-i18n="speech">どの色を探す？</div>
-      <div class="friends-art">
-        <div class="color-orb" aria-hidden="true"></div>
-        <img src="assets/catchue-friends.webp" width="1200" height="732" alt="白とオレンジの猫と、水色のネズミが、いっしょに色を紹介しています。" fetchpriority="high" data-alt="friendsAlt">
+    <figure class="hero-preview">
+      <div class="hero-screens">
+        <a class="screen" href="assets/screens/puri-layout-ja.webp" target="_blank" rel="noopener" data-screen="puri-layout"><img src="assets/screens/puri-layout-ja.webp" width="780" height="1696" alt="PURIの入り口。水色のプリクラ機が表示されています。" data-alt="altBooth" fetchpriority="high"><span class="screen-zoom" aria-hidden="true">↗</span></a>
+        <a class="screen" href="assets/screens/puri-editing-ja.webp" target="_blank" rel="noopener" data-screen="puri-editing"><img src="assets/screens/puri-editing-ja.webp" width="780" height="1696" alt="PURIの落書き画面。プリクラの下にペンやステッカーのツールが並んでいます。" data-alt="altPuriEdit" fetchpriority="high"><span class="screen-zoom" aria-hidden="true">↗</span></a>
       </div>
-      <div class="color-picker">
-        <div class="color-name" id="color-name" aria-live="polite">SKY BLUE</div>
-        <div class="swatches" role="group" aria-label="試しに色を選ぶ" data-label="colorsLabel">
-          <button class="color-choice" type="button" data-color="#80cbe8" data-name="SKY BLUE" aria-label="水色" aria-pressed="true" style="--swatch:#80cbe8"><span aria-hidden="true">✓</span></button>
-          <button class="color-choice" type="button" data-color="#ffab9f" data-name="CORAL" aria-label="コーラル" aria-pressed="false" style="--swatch:#ffab9f"><span aria-hidden="true">✓</span></button>
-          <button class="color-choice" type="button" data-color="#ffcf63" data-name="SUNNY YELLOW" aria-label="黄色" aria-pressed="false" style="--swatch:#ffcf63"><span aria-hidden="true">✓</span></button>
-          <button class="color-choice" type="button" data-color="#a9d7b8" data-name="MINT" aria-label="ミント" aria-pressed="false" style="--swatch:#a9d7b8"><span aria-hidden="true">✓</span></button>
-          <button class="color-choice" type="button" data-color="#c3abe7" data-name="LILAC" aria-label="ライラック" aria-pressed="false" style="--swatch:#c3abe7"><span aria-hidden="true">✓</span></button>
-        </div>
-      </div>
-    </div>
+      <figcaption data-i18n="screenshotNote">アプリの実画面（サンプルデータ）。画像をタップすると拡大します。</figcaption>
+    </figure>
   </section>
+
   <section class="how-section" id="how" aria-labelledby="how-title">
-    <div class="section-heading"><h2 id="how-title" data-i18n="navHow">あそびかた</h2></div>
-    <ol class="play-flow" role="list">
-      <li class="play-panel">
-        <div class="play-art art-blue"><img src="assets/catchue-sticker-hunt.webp" width="512" height="320" alt="" loading="lazy"></div>
-        <h3 data-i18n="step1">好きなものを撮る</h3>
-      </li>
-      <li class="play-panel">
-        <div class="play-art art-mint cutout-demo" aria-hidden="true">
-          <span class="cutout-photo"><span class="berry"></span></span>
-          <span class="diagram-arrow"></span>
-          <span class="cutout-sticker"><span class="berry"></span></span>
-        </div>
-        <h3 data-i18n="step2">切り抜いて保存</h3>
-      </li>
-      <li class="play-panel">
-        <div class="play-art art-lilac"><img src="assets/catchue-puri-pose.webp" width="512" height="320" alt="" loading="lazy"></div>
-        <h3 data-i18n="step3">みんなで撮る</h3>
-      </li>
-      <li class="play-panel">
-        <div class="play-art art-peach"><img src="assets/catchue-puri-print.webp" width="512" height="320" alt="" loading="lazy"></div>
-        <h3 data-i18n="step4">飾って受け取る</h3>
-      </li>
-    </ol>
-    <p class="availability-note" data-i18n="availability">ステッカーは対応テスト版で使えます。</p>
+    <h2 id="how-title" data-i18n="navHow">あそびかた</h2>
+    <article class="guide guide-sticker">
+      <div class="guide-copy">
+        <h3 data-i18n="stickerTitle">ステッカーハント</h3>
+        <ol>
+          <li data-i18n="stickerShoot">撮影画面でカメラのアイコンを選ぶと、ステッカーハントに。好きなものを撮ります。</li>
+          <li data-i18n="stickerSave">切り抜きを確認して保存。ギャラリーの「Sticker」から選べます。</li>
+        </ol>
+        <p class="availability-note" data-i18n="availability">ステッカー機能は対応するテスト版で使えます。</p>
+      </div>
+      <div class="guide-screens">
+        <a class="screen" href="assets/screens/sticker-camera-ja.webp" target="_blank" rel="noopener" data-screen="sticker-camera"><img src="assets/screens/sticker-camera-ja.webp" width="780" height="1696" alt="ステッカーハントの撮影画面。上部にSTICKER HUNTINGと表示されています。" data-alt="altStickerCamera" loading="lazy"><span class="screen-zoom" aria-hidden="true">↗</span></a>
+        <a class="screen" href="assets/screens/sticker-gallery-ja.webp" target="_blank" rel="noopener" data-screen="sticker-gallery"><img src="assets/screens/sticker-gallery-ja.webp" width="780" height="1696" alt="ギャラリーのStickerタブ。保存したステッカーが並んでいます。" data-alt="altStickerGallery" loading="lazy"><span class="screen-zoom" aria-hidden="true">↗</span></a>
+      </div>
+    </article>
+    <article class="guide guide-puri">
+      <div class="guide-copy">
+        <h3 data-i18n="puriTitle">PURIでプリクラ</h3>
+        <ol>
+          <li data-i18n="puriShoot">カメラ画面を右にスワイプしてPURIへ。友達を招待して撮影し、使う写真を投票で選びます。</li>
+          <li data-i18n="puriDecorate">ペンやステッカーで一緒に飾ります。完成したら印刷口をタップして受け取れます。</li>
+        </ol>
+      </div>
+      <div class="guide-screens">
+        <a class="screen" href="assets/screens/puri-editing-ja.webp" target="_blank" rel="noopener" data-screen="puri-editing"><img src="assets/screens/puri-editing-ja.webp" width="780" height="1696" alt="PURIの落書き画面。プリクラの下にペンやステッカーのツールが並んでいます。" data-alt="altPuriEdit" loading="lazy"><span class="screen-zoom" aria-hidden="true">↗</span></a>
+        <a class="screen" href="assets/screens/puri-print-ja.webp" target="_blank" rel="noopener" data-screen="puri-print"><img src="assets/screens/puri-print-ja.webp" width="780" height="1696" alt="PURIの完成画面。印刷口から完成したプリクラが出ています。" data-alt="altPuriPrint" loading="lazy"><span class="screen-zoom" aria-hidden="true">↗</span></a>
+      </div>
+    </article>
   </section>
+
   <section class="feature-section" id="features" aria-labelledby="features-title">
-    <div class="section-heading"><h2 id="features-title" data-i18n="navFeatures">できること</h2></div>
+    <h2 id="features-title" data-i18n="navFeatures">できること</h2>
     <div class="feature-grid">
       <article class="feature-card feature-today">
-        <div class="feature-art" aria-hidden="true">
-          <span class="demo-color"></span><span class="diagram-arrow"></span>
-          <img class="demo-photo" src="assets/catchue-demo-postbox.webp" alt="" width="192" height="192" loading="lazy">
+        <a class="screen" href="assets/screens/today-ja.webp" target="_blank" rel="noopener" data-screen="today"><img src="assets/screens/today-ja.webp" width="780" height="1696" alt="Todayのお題の色と投稿写真の一覧。" data-alt="altToday" loading="lazy"><span class="screen-zoom" aria-hidden="true">↗</span></a>
+        <div class="feature-copy">
+          <h3>Today</h3>
+          <p data-i18n="todayDetail">配信されたお題の色で撮って投稿。投稿すると、相互フレンドがその日に撮った写真を見られます。</p>
         </div>
-        <h3>Today</h3><p data-i18n="todayDetail">お題の色で投稿</p>
+      </article>
+      <article class="feature-card feature-gifts-detail">
+        <a class="screen" href="assets/screens/gifts-detail-ja.webp" target="_blank" rel="noopener" data-screen="gifts-detail"><img src="assets/screens/gifts-detail-ja.webp" width="780" height="1696" alt="Giftsの詳細画面。ステッカーのプレビューと受け取りボタンが表示されています。" data-alt="altGifts" loading="lazy"><span class="screen-zoom" aria-hidden="true">↗</span></a>
+        <div class="feature-copy">
+          <h3>Gifts</h3>
+          <p data-i18n="giftsDetail">作ったステッカーを相互フレンドに配布。受け取ったステッカーはギャラリーに入り、PURIなどで使えます。</p>
+        </div>
       </article>
       <article class="feature-card feature-rooms">
-        <div class="feature-art" aria-hidden="true">
-          <img class="demo-characters" src="assets/catchue-friends.webp" alt="" width="1200" height="732" loading="lazy">
-          <span class="diagram-arrow"></span>
-          <span class="demo-stack">
-            <img class="demo-photo" src="assets/catchue-demo-lemons.webp" alt="" width="192" height="192" loading="lazy">
-            <img class="demo-photo" src="assets/catchue-demo-chair.webp" alt="" width="192" height="192" loading="lazy">
-          </span>
+        <a class="screen" href="assets/screens/rooms-ja.webp" target="_blank" rel="noopener" data-screen="rooms"><img src="assets/screens/rooms-ja.webp" width="780" height="1696" alt="Roomsの一覧。ルーム作成と参加中のルームが表示されています。" data-alt="altRooms" loading="lazy"><span class="screen-zoom" aria-hidden="true">↗</span></a>
+        <div class="feature-copy">
+          <h3>Rooms</h3>
+          <p data-i18n="roomsDetail">ルームを作って友達を招待し、一緒に色を探します。撮影が終わると、参加者同士で写真を見られます。</p>
         </div>
-        <h3>Rooms</h3><p data-i18n="roomsDetail">友達と色探し</p>
-      </article>
-      <article class="feature-card feature-puri">
-        <div class="feature-art" aria-hidden="true">
-          <img class="demo-characters" src="assets/catchue-puri-pose.webp" alt="" width="512" height="320" loading="lazy">
-          <span class="diagram-arrow"></span>
-          <span class="demo-strip">
-            <img src="assets/catchue-puri-pose.webp" alt="" width="512" height="320" loading="lazy">
-            <img src="assets/catchue-friends.webp" alt="" width="1200" height="732" loading="lazy">
-          </span>
-        </div>
-        <h3>PURI</h3><p data-i18n="puriDetail">みんなで作るプリクラ</p>
-      </article>
-      <article class="feature-card feature-gifts">
-        <div class="feature-art" aria-hidden="true">
-          <span class="cutout-sticker"><span class="berry"></span></span><span class="diagram-arrow"></span><span class="demo-gift"></span>
-        </div>
-        <h3>Gifts</h3><p data-i18n="giftsDetail">ステッカーの贈りもの</p>
       </article>
       <article class="feature-card feature-works">
-        <div class="feature-art" aria-hidden="true">
-          <span class="demo-calendar"><span></span></span><span class="diagram-arrow"></span>
-          <span class="demo-collage">
-            <img src="assets/catchue-demo-apples.webp" alt="" width="192" height="192" loading="lazy">
-            <img src="assets/catchue-demo-chair.webp" alt="" width="192" height="192" loading="lazy">
-            <img src="assets/catchue-demo-postbox.webp" alt="" width="192" height="192" loading="lazy">
-            <img src="assets/catchue-demo-lemons.webp" alt="" width="192" height="192" loading="lazy">
-          </span>
+        <a class="screen" href="assets/screens/works-ja.webp" target="_blank" rel="noopener" data-screen="works"><img src="assets/screens/works-ja.webp" width="780" height="1696" alt="Worksのカレンダー。日付ごとに作品や受け取りが表示されています。" data-alt="altWorks" loading="lazy"><span class="screen-zoom" aria-hidden="true">↗</span></a>
+        <div class="feature-copy">
+          <h3>Works</h3>
+          <p data-i18n="worksDetail">Todayの自動コラージュは翌朝に、PURIの作品は撮影後に。届いた作品をカレンダーで振り返れます。</p>
         </div>
-        <h3>Works</h3><p data-i18n="worksDetail">作品を見返す</p>
       </article>
-      <article class="feature-card feature-skins">
-        <div class="feature-art" aria-hidden="true">
-          <span class="demo-silicone"><img src="assets/catchue-demo-apples.webp" alt="" width="192" height="192" loading="lazy"></span>
-          <span class="diagram-arrow"></span>
-          <span class="demo-chrome">
-            <img src="assets/catchue-demo-apples.webp" alt="" width="192" height="192" loading="lazy">
-            <img src="assets/catchue-demo-chrome-frame.webp" alt="" width="256" height="256" loading="lazy">
-          </span>
+      <article class="feature-card feature-collage-background">
+        <a class="screen" href="assets/screens/collage-background-ja.webp" target="_blank" rel="noopener" data-screen="collage-background"><img src="assets/screens/collage-background-ja.webp" width="780" height="1696" alt="Y2Kスキンのコラージュ背景画面。写真の見本と背景・シェイプ・枠の選択肢が表示されています。" data-alt="altCollage" loading="lazy"><span class="screen-zoom" aria-hidden="true">↗</span></a>
+        <div class="feature-copy">
+          <h3 data-i18n="collageTitle">コラージュとY2K</h3>
+          <p data-i18n="collageDetail">コラージュのシェイプや背景色を選んで、自分好みに。Y2Kスキンでは、リキッドメタルやホログラムの枠で飾れます。</p>
         </div>
-        <h3 data-i18n="skinsTitle">シリコン / Y2K</h3><p data-i18n="skinsDetail">スキンを着せ替え</p>
       </article>
     </div>
-    <p class="access-note"><span data-i18n="localAccess">撮影・編集はサインイン不要</span><span data-i18n="sharingAccess">共有はAppleでサインイン</span></p>
+    <p class="access-note" data-i18n="access">撮影・編集はサインイン不要です。友達と共有するときはAppleでサインインします。</p>
   </section>
 </main>
 <footer class="site-footer"><a class="footer-brand" href="./">Catchue<span aria-hidden="true">✦</span></a><div class="footer-links"><a href="privacy/?lang=ja" data-i18n="privacy">プライバシーポリシー</a><a href="mailto:catchue.app@gmail.com" data-i18n="navContact">お問い合わせ</a><a href="?lang=en" id="language-link" lang="en">English</a></div><small>© Catchue</small></footer>
