@@ -91,6 +91,7 @@ html[lang="en"] .hero h1 { font-size: clamp(36px, 4.7vw, 60px); }
 .button:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
 .release-note,
 .hero-preview figcaption,
+.device-example figcaption,
 .availability-note,
 .access-note {
   color: var(--sub);
@@ -180,6 +181,11 @@ html[lang="en"] .hero h1 { font-size: clamp(36px, 4.7vw, 60px); }
   gap: 12px;
   width: min(100%, 390px);
   justify-self: center;
+}
+.device-example { margin: 0; }
+.device-example figcaption {
+  margin-top: 9px;
+  text-align: center;
 }
 .guide-copy h3,
 .feature-copy h3 {
