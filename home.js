@@ -1,17 +1,30 @@
 const query = new URLSearchParams(location.search);
 const english = query.get('lang') === 'en' || (query.get('lang') !== 'ja' && !(navigator.language || 'ja').toLowerCase().startsWith('ja'));
 const translations = {
-  navHow: 'How to play', navContact: 'Contact', eyebrow: 'A little color in your everyday.',
-  title: 'Go play.<br><span class="play-word">Find your hue.</span>',
-  description: 'Find today’s color with a cat and a mouse.<br>A camera for the little discoveries around you.',
-  discover: 'Meet Catchue', release: 'For iPhone · Currently in testing', speech: 'Which color will you find?',
-  howTitle: 'Little colors.<br class="mobile-break"> Lasting memories.', step1Title: 'Find a color.',
-  step1Text: 'Blue skies. Pink flowers.<br>Find today’s color in your everyday.', step2Title: 'Make it your hue.',
-  step2Text: 'Tune your colors with one tap.<br>Or take your time with detailed editing.', step3Title: 'Keep the day.',
-  step3Text: 'Your posted photos arrive as a collage.<br>Keep your color discoveries in Works.',
-  togetherTitle: 'On your own.<br>With your friends.',
-  togetherText: 'Collect your own color discoveries,<br>or chase the same color in a private room.<br>Different perspectives, one little artwork.',
-  tag: 'And a cat and a mouse, of course.', footerNote: 'A little color, every day.', privacy: 'Privacy policy',
+  navHow: 'How to play', navFeatures: 'Features', navContact: 'Contact',
+  eyebrow: 'Sticker Hunt and photo strips with friends',
+  title: 'Find it.<br><span class="play-word">Make a sticker.</span>',
+  description: 'Snap a photo and cut out something you love.<br>Add your sticker to a photo strip with friends.',
+  discover: 'See how to play', release: 'For iPhone · Currently in testing', speech: 'Which color will you find?',
+  howTitle: 'Make a sticker.<br class="mobile-break"> Add it to your photo strip.',
+  step1Title: 'Go on a Sticker Hunt',
+  step1Text: 'Choose Sticker Hunt in the camera and take a photo. Preview the cutout and save it to Sticker in Gallery.',
+  step2Title: 'Strike a pose in PURI',
+  step2Text: 'Swipe right from the camera to open PURI. Take photos with friends and vote for your favorites.',
+  step3Title: 'Decorate and pick up your print',
+  step3Text: 'Draw and add stickers together, then pick up the finished photo strip from the booth’s print slot.',
+  availability: 'Sticker features are available in supported test builds.',
+  togetherTitle: 'Shoot right away.<br>Share when you’re ready.',
+  togetherText: 'Take photos, edit, make stickers, and create collages without signing in.<br>Sign in with Apple to share with friends.',
+  footerNote: 'A little color, every day.', privacy: 'Privacy policy',
+  featuresTitle: "What you can do in Catchue",
+  skinsTitle: "Silicone and Y2K",
+  todayDetail: "Post with today’s featured color to see mutual friends’ photos for the day.",
+  roomsDetail: "Invite friends to a color hunt. See each other’s photos after shooting ends.",
+  puriDetail: "Take photo-strip pictures, vote for your shots, decorate together, and pick up your finished print from the booth.",
+  giftsDetail: "Distribute the stickers you make to mutual friends. Use stickers you claim in PURI and other sticker tools.",
+  worksDetail: "Find your next-morning Today collages and PURI prints in the calendar. Eligible sticker gifts may appear in your automatic collage.",
+  skinsDetail: "Switch between Silicone and Y2K. In supported test builds, decorate collages with Y2K frames and backgrounds.",
   friendsAlt: 'A white and orange cat and a blue mouse presenting a color together.', keepsakeAlt: 'A cat and a mouse holding a colorful artwork.', colorsLabel: 'Try picking a color'
 };
 if (english) {
@@ -20,6 +33,8 @@ if (english) {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = translations[el.dataset.i18n]; });
   document.querySelectorAll('[data-alt]').forEach(el => { el.alt = translations[el.dataset.alt]; });
   document.querySelectorAll('[data-label]').forEach(el => { el.setAttribute('aria-label', translations[el.dataset.label]); });
+  document.querySelector('.brand').href = '?lang=en';
+  document.querySelector('.footer-brand').href = '?lang=en';
   document.querySelector('.brand').setAttribute('aria-label', 'Catchue home');
   document.querySelector('.hero-playground').setAttribute('aria-label', 'Pick a color with our cat and mouse');
   document.querySelector('nav').setAttribute('aria-label', 'Main navigation');
